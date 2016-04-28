@@ -19,6 +19,10 @@ public class App {
         System.out.println("\nAfter Navigating Plateau ::: " + marSquad);
     }
 
+    /**
+     * Will create and return plateau object depending upon user input
+     * @return Plateau object with user entered end position and start position will be 0 0 by default
+     */
     private Plateau getPlateau() {
         String plateauPosition = null;
         while (plateauPosition == null) {
@@ -31,6 +35,10 @@ public class App {
         return new Plateau(endPosition);
     }
 
+    /**
+     * Accepting user input for plateau end position and validating it
+     * @return user input string for plateau end position if it is in correct format, else will return null
+     */
     private String getStringPlateauFromPosition() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Plateau End Position - Ex. 5 5 :: ");
@@ -53,6 +61,11 @@ public class App {
         }
     }
 
+    /**
+     * Creating Rover list for input plateau object depending upon user input
+     * @param plateauObj plateau for which to create rover list
+     * @return created list of rovers.
+     */
     private List<Rover> getRoverList(Plateau plateauObj) {
         List<Rover> roverList = new ArrayList<>();
         int totalRovers = -1;
@@ -69,6 +82,10 @@ public class App {
         return roverList;
     }
 
+    /**
+     *  Accepting user input for total number of rovers and validating user input
+     * @return Integer of total number of rovers to accept
+     */
     private int getTotalNumberOfRovers() {
         int totalRovers = -1;
         Scanner scanner = new Scanner(System.in);
@@ -81,6 +98,11 @@ public class App {
         return totalRovers;
     }
 
+    /**
+     * Accepting user input for rover position and command to execute & validating user input
+     * @param plateauObj plateau for which to create rover
+     * @return Rover with user input position and command list to execute by rover
+     */
     private Rover getRoverFromPositionAndCommand(Plateau plateauObj) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter Rover Position - Ex. 1 2 N ::  ");
@@ -129,6 +151,11 @@ public class App {
         }
     }
 
+    /**
+     * Validating command to rover is correct or not
+     * @param commandInput String to validate as a command
+     * @return True if command is correct Or Else false
+     */
     private boolean isValidCommand(String commandInput) {
         if (commandInput.matches("[LRM]*"))
             return true;

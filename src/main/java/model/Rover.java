@@ -24,6 +24,9 @@ public class Rover {
         return roverFace;
     }
 
+    /**
+     * Execute commands of rover from command list
+     */
     void executeCommands() {
         Boolean validCommand = true;
         for (Command command : roverCommand) {
@@ -47,6 +50,9 @@ public class Rover {
         }
     }
 
+    /**
+     * Changes the face direction of rover by spinning left
+     */
     private void spinLeft() {
         switch (roverFace.getFacing()) {
             case 'N':
@@ -65,6 +71,9 @@ public class Rover {
         }
     }
 
+    /**
+     * Changes the face direction of rover by spinning right
+     */
     private void spinRight() {
         switch (roverFace.getFacing()) {
             case 'N':
@@ -83,6 +92,10 @@ public class Rover {
         }
     }
 
+    /**
+     * Rover will Move forward by one grid
+     * @return True if moved successfully or else False if invalid movement
+     */
     private boolean moveForward() {
         if (canMoveTowards()) {
             switch (roverFace.getFacing()) {
@@ -106,6 +119,10 @@ public class Rover {
         }
     }
 
+    /**
+     * Check that rover can move forward or not
+     * @return True if rover can move or else False
+     */
     private boolean canMoveTowards() {
         Boolean canMove = false;
         switch (roverFace.getFacing()) {
@@ -130,10 +147,20 @@ public class Rover {
 
     }
 
+    /**
+     * To move forward will check range of Plateau of X coordinate
+     * @param coordinate X coordinate of rover to check
+     * @return True if rover can move within range of plateau or else False
+     */
     private boolean checkRangeOfXCoordinates(int coordinate) {
         return roverPlateau.getStartPosition().getXCoordinate() <= coordinate && roverPlateau.getEndPosition().getXCoordinate() >= coordinate;
     }
 
+    /**
+     * To move forward will check range of Plateau of Y coordinate
+     * @param coordinate Y coordinate of rover to check
+     * @return True if rover can move within range of plateau or else False
+     */
     private boolean checkRangeOfYCoordinates(int coordinate) {
         return roverPlateau.getStartPosition().getYCoordinate() <= coordinate && roverPlateau.getEndPosition().getYCoordinate() >= coordinate;
     }
