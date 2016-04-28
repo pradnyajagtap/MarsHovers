@@ -25,7 +25,7 @@ public class Rover {
     }
 
     /**
-     * Execute commands of rover from command list
+     * Execute commands of rover from Command List
      */
     void executeCommands() {
         Boolean validCommand = true;

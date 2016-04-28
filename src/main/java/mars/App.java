@@ -20,7 +20,7 @@ public class App {
     }
 
     /**
-     * Will create and return plateau object depending upon user input
+     * Create and return plateau object depending upon user input
      * @return Plateau object with user entered end position and start position will be 0 0 by default
      */
     private Plateau getPlateau() {
