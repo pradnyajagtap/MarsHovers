@@ -14,7 +14,7 @@ public class Position {
         return xCoordinate;
     }
 
-    public void setXCoordinate(int xCoordinate) {
+    void setXCoordinate(int xCoordinate) {
         this.xCoordinate = xCoordinate;
     }
 
@@ -22,16 +22,14 @@ public class Position {
         return yCoordinate;
     }
 
-    public void setYCoordinate(int yCoordinate) {
+    void setYCoordinate(int yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
 
     @Override
     public boolean equals(Object obj) {
         Position position = (Position) obj;
-        if (xCoordinate == position.xCoordinate && yCoordinate == position.yCoordinate)
-            return true;
-        return super.equals(obj);
+        return xCoordinate == position.xCoordinate && yCoordinate == position.yCoordinate || super.equals(obj);
     }
 
     @Override

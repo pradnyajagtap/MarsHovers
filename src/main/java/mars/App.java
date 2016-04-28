@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class App {
 
-    public static void main(String aargs[]) {
+    public static void main(String args[]) {
         App appObj = new App();
         Plateau mars = appObj.getPlateau();
         List<Rover> rovers = appObj.getRoverList(mars);
@@ -22,7 +22,7 @@ public class App {
     private Plateau getPlateau() {
         String plateauPosition = null;
         while (plateauPosition == null) {
-            plateauPosition = getStringPlateuFromPosition();
+            plateauPosition = getStringPlateauFromPosition();
         }
         String inputArray[] = plateauPosition.split(" ");
         String xCoordinate = inputArray[0];
@@ -31,7 +31,7 @@ public class App {
         return new Plateau(endPosition);
     }
 
-    private String getStringPlateuFromPosition() {
+    private String getStringPlateauFromPosition() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Plateau End Position - Ex. 5 5 :: ");
         String inputStr = scanner.nextLine();
@@ -93,13 +93,11 @@ public class App {
                 String face = inputArray[2];
                 int xCoordinate = Integer.parseInt(xCoordinateStr);
                 int yCoordinate = Integer.parseInt(yCoordinateStr);
-                if(xCoordinate < plateauObj.getStartPosition().getXCoordinate() || xCoordinate > plateauObj.getEndPosition().getXCoordinate() )
-                {
+                if (xCoordinate < plateauObj.getStartPosition().getXCoordinate() || xCoordinate > plateauObj.getEndPosition().getXCoordinate()) {
                     System.out.println("Invalid Rover Position,Position should be in Plateau Range");
                     return null;
                 }
-                if(yCoordinate < plateauObj.getStartPosition().getYCoordinate() || yCoordinate > plateauObj.getEndPosition().getYCoordinate() )
-                {
+                if (yCoordinate < plateauObj.getStartPosition().getYCoordinate() || yCoordinate > plateauObj.getEndPosition().getYCoordinate()) {
                     System.out.println("Invalid Rover Position,Position should be in Plateau Range");
                     return null;
                 }
@@ -108,7 +106,7 @@ public class App {
                     String commandInput = "";
                     List<Command> roverCommand = new ArrayList<>();
                     while (!validCommand) {
-                        System.out.print("Enter Rover command - Ex. LRMMMMRRLL  :: ");
+                        System.out.print("Enter Rover command - Ex. LRM  :: ");
                         commandInput = scanner.nextLine();
                         validCommand = isValidCommand(commandInput);
                     }
@@ -122,11 +120,11 @@ public class App {
                     return null;
                 }
             } else {
-                System.out.println("Invalid Rover Postion!!!Please Enter in format - XCoordinate YCoordinate facingDirection");
+                System.out.println("Invalid Rover Position!!!Please Enter in format - XCoordinate YCoordinate facingDirection");
                 return null;
             }
         } catch (Exception e) {
-            System.out.println("Invalid Rover Postion!!!Please Enter - XCoordinate YCoordinate in the integer format ONLY");
+            System.out.println("Invalid Rover Position!!!Please Enter - XCoordinate YCoordinate in the integer format ONLY");
             return null;
         }
     }

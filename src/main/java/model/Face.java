@@ -19,15 +19,11 @@ public class Face {
     @Override
     public boolean equals(Object obj) {
         Face face = (Face) obj;
-        if (facing==face.facing)
-            return true;
-        return super.equals(obj);
+        return facing == face.facing || super.equals(obj);
     }
 
     @Override
     public String toString() {
-        return "***[" +
-                "Direction ::  " + facing +
-                "]***";
+        return "***[" + "Direction ::  " + facing + "]***";
     }
 }

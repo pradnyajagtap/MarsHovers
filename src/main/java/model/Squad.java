@@ -12,13 +12,13 @@ public class Squad {
         this.rovers = rovers;
     }
 
-    public List<Rover> getRovers() {
+    List<Rover> getRovers() {
         return rovers;
     }
 
     @Override
     public String toString() {
-        return "\n\n****Squad  :: "+ "\n***Plateau ::  "+plateau+"\n***Rovers ::  "+rovers;
+        return "\n\n****Squad  :: " + "\n***Plateau ::  " + plateau + "\n***Rovers ::  " + rovers;
     }
 
     public void Navigate() {

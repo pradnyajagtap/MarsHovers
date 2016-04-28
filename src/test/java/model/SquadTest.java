@@ -1,8 +1,6 @@
 package model;
 
 import junit.framework.TestCase;
-import mars.App;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +9,15 @@ import java.util.List;
 public class SquadTest extends TestCase {
 
     public void testNavigate() throws Exception {
-        int xCoordinate=5;
-        int yCoordinate=5;
-        String positionInput="3 3 E";
-        String commandInput="MMRMMRMRRM ";
+        int xCoordinate = 5;
+        int yCoordinate = 5;
+        String positionInput = "3 3 E";
+        String commandInput = "LRM";
 
 
-
-        Position endPosition=new Position(xCoordinate, yCoordinate);
+        Position endPosition = new Position(xCoordinate, yCoordinate);
         Plateau mars = new Plateau(endPosition);
-         String inputArray[] = positionInput.split(" ");
+        String inputArray[] = positionInput.split(" ");
         String xCoordinateStr = inputArray[0];
         String yCoordinateStr = inputArray[1];
         String face = inputArray[2];
@@ -31,7 +28,7 @@ public class SquadTest extends TestCase {
         for (int i = 0; i < commandInput.length(); i++)
             roverCommand.add(new Command(commandInput.charAt(i)));
 
-        List<Rover> rovers  = new ArrayList<>();
+        List<Rover> rovers = new ArrayList<>();
         rovers.add(new Rover(mars, roverPosition, roverFace, roverCommand));
 
         Squad marSquad = new Squad(mars, rovers);
@@ -40,11 +37,11 @@ public class SquadTest extends TestCase {
         Rover outputRover = outputRovers.get(0);
 
 
-        Position expectedPosition = new Position(5, 1);
+        Position expectedPosition = new Position(4, 3);
         Face expectedFace = new Face('E');
 
-        assertEquals("Wrong Position after Navigation",expectedPosition,outputRover.getRoverPosition());
-        assertEquals("Wrong Face Direction after Navigation",expectedFace,outputRover.getRoverFace());
+        assertEquals("Wrong Position after Navigation", expectedPosition, outputRover.getRoverPosition());
+        assertEquals("Wrong Face Direction after Navigation", expectedFace, outputRover.getRoverFace());
 
     }
 

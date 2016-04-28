@@ -16,18 +16,18 @@ public class Rover {
         this.roverCommand = roverCommand;
     }
 
-    public Position getRoverPosition() {
+    Position getRoverPosition() {
         return roverPosition;
     }
 
-    public Face getRoverFace() {
+    Face getRoverFace() {
         return roverFace;
     }
 
-    public void executeCommands() {
-        Boolean validCammand = true;
+    void executeCommands() {
+        Boolean validCommand = true;
         for (Command command : roverCommand) {
-            if (!validCammand) {
+            if (!validCommand) {
                 System.out.println("\nCommand list terminated................");
                 break;
             }
@@ -40,7 +40,7 @@ public class Rover {
                     break;
                 case 'M':
                     if (!moveForward()) {
-                        validCammand = false;
+                        validCommand = false;
                     }
                     break;
             }
@@ -140,7 +140,7 @@ public class Rover {
 
     @Override
     public String toString() {
-        return "\n*****Rover[Position " + roverPosition + "Face " + roverFace +  "***Commands " + roverCommand +']';
+        return "\n*****Rover[Position " + roverPosition + "Face " + roverFace + "***Commands " + roverCommand + ']';
     }
 
 }
