@@ -83,7 +83,7 @@ public class App {
 
     private Rover getRoverFromPositionAndCommand(Plateau plateauObj) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("\nEnter Rover Position :: ");
+        System.out.print("\nEnter Rover Position - Ex. 1 2 N ::  ");
         String positionInput = scanner.nextLine();
         try {
             String inputArray[] = positionInput.split(" ");
@@ -108,7 +108,7 @@ public class App {
                     String commandInput = "";
                     List<Command> roverCommand = new ArrayList<>();
                     while (!validCommand) {
-                        System.out.print("Enter Rover command :: ");
+                        System.out.print("Enter Rover command - Ex. LRMMMMRRLL  :: ");
                         commandInput = scanner.nextLine();
                         validCommand = isValidCommand(commandInput);
                     }
