@@ -21,6 +21,7 @@ public class App {
 
     /**
      * Create and return plateau object depending upon user input
+     *
      * @return Plateau object with user entered end position and start position will be 0 0 by default
      */
     private Plateau getPlateau() {
@@ -37,6 +38,7 @@ public class App {
 
     /**
      * Accepting user input for plateau end position and validating it
+     *
      * @return user input string for plateau end position if it is in correct format, else will return null
      */
     private String getStringPlateauFromPosition() {
@@ -63,6 +65,7 @@ public class App {
 
     /**
      * Creating Rover list for input plateau object depending upon user input
+     *
      * @param plateauObj plateau for which to create rover list
      * @return created list of rovers.
      */
@@ -83,7 +86,8 @@ public class App {
     }
 
     /**
-     *  Accepting user input for total number of rovers and validating user input
+     * Accepting user input for total number of rovers and validating user input
+     *
      * @return Integer of total number of rovers to accept
      */
     private int getTotalNumberOfRovers() {
@@ -100,6 +104,7 @@ public class App {
 
     /**
      * Accepting user input for rover position and command to execute & validating user input
+     *
      * @param plateauObj plateau for which to create rover
      * @return Rover with user input position and command list to execute by rover
      */
@@ -135,8 +140,7 @@ public class App {
                     for (int i = 0; i < commandInput.length(); i++)
                         roverCommand.add(new Command(commandInput.charAt(i)));
                     Position roverPosition = new Position(xCoordinate, yCoordinate);
-                    Face roverFace = new Face(face.charAt(0));
-                    return new Rover(plateauObj, roverPosition, roverFace, roverCommand);
+                    return new Rover(plateauObj, roverPosition, face.charAt(0), roverCommand);
                 } else {
                     System.out.println("Invalid Rover Face direction should be E/W/N/S");
                     return null;
@@ -153,6 +157,7 @@ public class App {
 
     /**
      * Validating command to rover is correct or not
+     *
      * @param commandInput String to validate as a command
      * @return True if command is correct Or Else false
      */

@@ -20,6 +20,6 @@ public class Plateau {
     @Override
     public String toString() {
         return "\n*** startPosition ::  " + startPosition +
-                ", endPosition ::  " + endPosition ;
+                ", endPosition ::  " + endPosition;
     }
 }
